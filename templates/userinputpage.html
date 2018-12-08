@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Input</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.css" />
+
+</head>
+<body>
+
+
+	<div>
+		<section class="section">
+	        <div class="container">
+	            <div class="columns">
+	                <div class="column is-offset-4 is-4">
+	                    <form method="POST">
+	                        <div class="field has-addons">
+	                            <div class="control is-expanded">
+	                                {% csrf_token %}
+				    				{{form.url}}
+	                            </div>
+	                            <div class="control">
+	                                <button class="button is-info" type="submit">
+	                                </button>
+	                            </div>
+	                        </div>
+		                    </form>
+		                    <hr>
+		                    {% for url in url_list %}	
+								  <div>
+								  	<p>Sucess: <strong>{{url.url}}</strong></p>
+								  	<p>Sucess: <strong>{{url.success}}</strong></p>
+								  	<p>Uses_jquery: <strong>{{url.uses_jquery}}</strong></p>
+								  	<p>Version: <strong>{{url.version}}</strong></p>
+								  	<p>Found_in_line: <strong>{{url.found_in_line}}</strong></p>
+								  	<hr>
+								  </div>
+							{% endfor %}
+		                </div>
+		            </div>
+		        </div>
+	    </section>
+	</div>
+		
+		
+
+</body>
+</html>
